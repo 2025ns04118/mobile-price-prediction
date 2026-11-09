@@ -128,14 +128,6 @@ as "fraction of phones priced into the right band." Macro-F1 (0.9552) tracking a
 (0.9550) almost exactly confirms no class is being sacrificed. On an imbalanced dataset,
 accuracy would be worthless — but that is not the case here.
 
-### Error analysis
-
-The confusion matrix shows **all 18 remaining errors are adjacent-band mistakes** (e.g.
-class 1 confused with class 2). **Zero errors jump two or more bands** — the model never
-confuses a budget phone with a flagship. The weakest band is class 1 "medium" (recall 0.96,
-precision 0.91): the model occasionally promotes a low-cost phone into the medium band,
-exactly where the RAM distributions overlap.
-
 ### Overfitting / underfitting diagnosis
 
 - **Decision Tree**: Validation curve shows training accuracy → 1.0 while CV score peaks then
@@ -191,35 +183,10 @@ same folder.
    no-skew-transform: each settled by cross-validated comparison, not assumption.
 2. **Data-quality bug found and fixed** — `px_height=0` and `sc_w=0` are physically impossible;
    median-imputed with training-set-only statistics.
-3. **Controlled class-imbalance experiment** — artificially skewed copy tested with
-   `class_weight`, random over-sampling, SMOTE, SMOTE-Tomek; quantified effect on macro-F1
-   and per-class recall.
-4. **Three-lens feature importance** — Gini + mutual information + permutation importance
+3. **Three-lens feature importance** — Gini + mutual information + permutation importance
    combined into a consensus ranking.
-5. **Heterogeneous soft-voting ensemble** — bagging + boosting + kernel model, chosen for error
+4. **Heterogeneous soft-voting ensemble** — bagging + boosting + kernel model, chosen for error
    diversity, not three variants of the same learner.
-6. **Graphical overfitting diagnosis** — learning curve + validation curve make bias–variance
+5. **Graphical overfitting diagnosis** — learning curve + validation curve make bias–variance
    trade-off visible.
-7. **Ordinal error analysis** — errors split into adjacent-band and 2+-band mistakes; all 18
-   errors are adjacent-band.
-8. **Production-grade Streamlit UI** — single/batch/insight tabs, not a bare form.
-9. **Deployment verified** — artefact reloaded from disk, re-queried, predictions asserted to match.
 
-## h. Reproducing the results
-
-Everything is seeded with `RANDOM_STATE = 42`, so all splits, tuned parameters and metrics
-reproduce exactly.
-
-```bash
-# Run the notebook end-to-end
-jupyter notebook Group_XX.ipynb
-
-# Or just run the Streamlit app
-streamlit run app.py
-```
-
-## References
-
-1. Mobile Price Prediction dataset — provided with the DSEZG568 assignment.
-2. scikit-learn: Pedregosa et al., *Scikit-learn: Machine Learning in Python*, JMLR 12, 2011.
-3. DSEZG568 Applied Machine Learning — course handout.
