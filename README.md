@@ -1,6 +1,6 @@
 # Mobile Price Prediction — Multi-Class Classification
 
-**S1-26_DSEZG568 Applied Machine Learning — Assignment (Weightage 30%)**
+**S1-26_DSEZG568 Applied Machine Learning**
 
 A comparison of four classifiers — Decision Tree, Random Forest, SVM (RBF) and Gradient
 Boosting — plus a heterogeneous soft-voting ensemble, on the **Mobile Price Prediction**
