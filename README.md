@@ -76,21 +76,6 @@ This is a **multi-class classification** problem: given a phone's specifications
 | Scaling | `StandardScaler` inside `Pipeline` | Mandatory for RBF-SVM; inside pipeline to prevent data leakage across CV folds |
 | Feature importance | Gini, mutual information, permutation importance compared | Three lenses guard against single-method bias; all rank `ram` first |
 
-### Class balancing experiment
-
-The dataset is already perfectly balanced, so no resampling is applied to the real pipeline.
-An artificially imbalanced copy (class 0 full, classes 1–3 at 15%) was created to demonstrate
-five strategies:
-
-| Technique | Macro-F1 | Class-1 Recall | Verdict |
-|---|---|---|---|
-| No balancing | 0.737 | 0.352 | Accuracy hides the class-1 collapse |
-| `class_weight="balanced"` | **0.774** | **0.536** | Best remedy; zero data cost |
-| SMOTE | 0.763 | 0.528 | Close second |
-| SMOTE + Tomek | 0.763 | 0.528 | Identical to SMOTE — no borderline pairs to clean |
-| Random over-sampling | 0.721 | 0.352 | **Hurt** — duplicating rows adds no information |
-| Balanced reference (original data) | 0.898 | — | Ceiling; synthetic samples can't match real data |
-
 ## c. Project structure
 
 ```
