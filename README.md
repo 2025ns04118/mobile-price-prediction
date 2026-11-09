@@ -79,18 +79,12 @@ This is a **multi-class classification** problem: given a phone's specifications
 ## c. Project structure
 
 ```
-AML/
-├── Group_XX.ipynb                      # Complete notebook (all 9 sections)
-├── Group_XX.html                       # HTML export with all outputs
+mobile-price-prediction/
 ├── app.py                              # Streamlit deployment
+├── requirements.txt                    # Libraries required for installation  
 ├── mobile_price_model.pkl              # Persisted model bundle (joblib)
 ├── Mobile_Price_Prediction_train.csv   # Training data (2,000 rows)
 ├── Mobile_Price_Prediction_test.csv    # Test data (1,000 rows, unlabelled)
-├── test_predictions.csv                # Predictions on the test set
-├── Notebook_Explanation.md             # Cell-by-cell walkthrough for viva
-├── DSEZG568 COURSE HANDOUT.docx        # Course handout
-├── S1_26_AML_Assignment.pdf            # Assignment problem statement
-├── streamlit_app_screenshot.png        # Screenshot of the running app
 └── README.md                           # This file
 ```
 
