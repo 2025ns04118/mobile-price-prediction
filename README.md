@@ -71,10 +71,6 @@ This is a **multi-class classification** problem: given a phone's specifications
 | Encoding | Label encoding for Yes/No columns; ordinal encoding for `mobile_wt` (Low=0, Med=1, High=2) | Models need numeric input; ordinal vs one-hot compared via CV — ordinal wins marginally (0.884 vs 0.878) |
 | Invalid values | `px_height=0` and `sc_w=0` median-imputed (training-set medians only) | Physically impossible — a phone cannot have zero pixel height or zero screen width |
 | Outliers | 20 flagged points (18 in `fc`, 2 in `px_height`) **retained** | Real premium specs; tree models are order-based, not magnitude-sensitive |
-| Skewness | Measured; **no transform applied** | Monotone transforms are invisible to trees; StandardScaler handles SVM |
-| Feature engineering | 6 new features: `px_area`, `screen_area`, `ppi`, `total_camera`, `ram_per_core`, `battery_per_talk_time` | Physically meaningful; `ram_per_core` reaches r=0.451; kept because CV shows no degradation |
-| Scaling | `StandardScaler` inside `Pipeline` | Mandatory for RBF-SVM; inside pipeline to prevent data leakage across CV folds |
-| Feature importance | Gini, mutual information, permutation importance compared | Three lenses guard against single-method bias; all rank `ram` first |
 
 ## c. Project structure
 
