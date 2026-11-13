@@ -2,8 +2,8 @@
 
 **S1-26_DSEZG568 Applied Machine Learning**
 
-A comparison of four classifiers — Decision Tree, Random Forest, SVM (RBF) and Gradient
-Boosting — plus a heterogeneous soft-voting ensemble, on the **Mobile Price Prediction**
+A comparison of four classifiers — Decision Tree, Random Forest, SVM and Gradient
+Boosting — plus a soft-voting ensemble, on the **Mobile Price Prediction**
 dataset. The goal is to categorise mobile phones into four price ranges (0–3) based on
 their technical specifications and deploy the best model with Streamlit.
 
